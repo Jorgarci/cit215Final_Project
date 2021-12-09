@@ -1,0 +1,41 @@
+
+.Display{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+img{
+    height: 400px
+}
+
+
+.instruments{
+    width: 500px;
+    height: 500px;
+    border:solid 2px black;
+    position:relative;
+    font-family: Roboto, sans-serif;
+    display:flex;
+    flex-flow: column wrap;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.carted{
+    display: none;
+}
+
+.Fender:hover{
+    background-color: red;
+    color: white
+}
+.Yamaha:hover{
+    background-color: green;
+    color: white
+}
+.Maton:hover{
+    background-color: blue;
+    color: white
+}

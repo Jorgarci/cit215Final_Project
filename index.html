@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Instrument Store </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <div class="Display">
+        <button v-on:click="addNew">Add New Instrument</button>
+        <h2>{{availability}}</h2>
+        <button v-on:click="emptyCart">Cart {{cart}}</button>
+    </div>
+    <div v-bind:class="{carted:!adding}">
+        <form>
+            <input type="text" placeholder="Name" v-model="SName">
+            <input type="text" placeholder="Type" v-model="SType">
+            <input type="text" placeholder="Price" v-model="SPrice">
+            <input type="radio" id="Fender" value="Fender" v-model="SBrand"><label for="Fender">Fender</label>
+            <input type="radio" id="Yamaha" value="Yamaha" v-model="SBrand"><label for="Yamaha">Yamaha</label>
+            <input type="radio" id="Maton" value="Maton" v-model="SBrand"><label for="Maton">Maton</label>
+        </form>
+        <button v-on:click="submit">Submit</button>
+        <button v-on:click="cancel">Cancel</button>
+    </div>
+        <div v-for="(item, index) in instruments">
+            <div class="instruments" v-bind:class="[item.brand, {carted:item.hidden}]" v-on:click="popUp(index)">
+                <div class="img"><img v-bind:src="item.img" alt="no image"></div>
+                <div>{{item.type}}</div>
+                <div v-bind:class="{carted:!item.details}">{{item.name}}</div>
+                <div v-bind:class="{carted:!item.details}">{{item.brand}}</div>
+                <div v-bind:class="{carted:!item.details}">{{item.price}}</div>
+            </div>
+            <button v-on:click="addCart(index)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+
